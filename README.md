@@ -202,12 +202,12 @@ Pixi的`画布`对象将会默认选择WebGL引擎渲染模式，它更快并且
 forceCanvas: true,
 ```
 
-如果你需要在你创建canvas标签之后改变它的背景色，设置 `app.renderer`对象的`backgroundColor`属性为一个任何的十六进制颜色：
+如果你需要在你创建 canvas 标签之后改变它的背景色，设置 `app.renderer`对象的`backgroundColor`属性为一个任何的十六进制颜色：
 
 ```js
 app.renderer.backgroundColor = 0x061639;
 ```
-如果你想要去找到`画布`的宽高，使用`app.renderer.view.width` 和`app.renderer.view.height`。
+如果你想要去找到 `renderer` 的宽高，使用 `app.renderer.view.width` 和 `app.renderer.view.height`。
 
 要改变 canvas 的大小，可使用 `renderer` 的 `resize` 方法，提供任意新的 `width` 和 `height` 值。但是为了确保对 canvas 的 resize 可以匹配 resolution，需将`autoResize`设置为`true`。
 ```js
@@ -238,7 +238,7 @@ app.stage
 ```
 这个 `stage` 是一个Pixi `Container`对象。你能把它理解成一种将放进去的东西分组并存储的空箱子。 `舞台`对象是在你的场景中所有可见对象的根容器。所有你放进去的东西都会被渲染到canvas中。现在`舞台`是空的，但是很快我们就会放进去一点东西。 (你可以从这了解关于Pixi`容器`对象的更多信息[here](http://pixijs.download/release/docs/PIXI.Container.html)).
 
-（重要信息：因为`舞台`是一个Pixi`容器`对象，所以他有很多其他`容器`对象都有的属性和方法。但是，尽管舞台拥有`width` 和 `height`属性， *他们都不能查看画布窗口的大小* 。舞台的`width` 和 `height`属性仅仅告诉了你你放进去的东西占用的大小 - 更多的信息在前面！）
+（重要信息：因为`舞台`是一个Pixi`容器`对象，所以他有很多其他`容器`对象都有的属性和方法。但是，尽管 stage 拥有`width` 和 `height`属性， *它们都不隐射渲染窗口的尺寸* 。舞台的`width` 和 `height`属性仅仅告诉了你你放进去的东西所占区域的大小 - 后面会更详细地介绍！）
 
 所以你可以放些什么到舞台上呢？那就是被称作 **精灵** 的特殊图像对象。精灵是你能用代码控制图像的基础。你能够控制他们的位置，大小，和许多其他有用的属性来产生交互和动画。学习怎样创建和控制精灵是学习Pixi最重要的部分。如果你知道怎么创建精灵和把他们添加进舞台，离做出一个游戏就仅仅剩下一步之遥！
 
