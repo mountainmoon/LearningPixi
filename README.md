@@ -209,12 +209,12 @@ app.renderer.backgroundColor = 0x061639;
 ```
 如果你想要去找到`画布`的宽高，使用`app.renderer.view.width` 和`app.renderer.view.height`。
 
-使用`画布`的`resize`方法可以改变canvas的大小，提供任何新的`width` 和 `height`变量给他都行。但是为了确认宽高的格式正确，将`autoResize`设置为`true`。
+要改变 canvas 的大小，可使用 `renderer` 的 `resize` 方法，提供任意新的 `width` 和 `height` 值。但是为了确保对 canvas 的 resize 可以匹配 resolution，需将`autoResize`设置为`true`。
 ```js
 app.renderer.autoResize = true;
 app.renderer.resize(512, 512);
 ```
-如果你想让canvas占据整个窗口，你可以将这些CSS代码放在文档中，并且刷新你浏览器窗口的大小。
+如果你想让 canvas 占据整个窗口，你可以将这些CSS代码放在文档中，并且刷新你浏览器窗口的大小。
 ```
 app.renderer.view.style.position = "absolute";
 app.renderer.view.style.display = "block";
@@ -230,13 +230,13 @@ app.renderer.resize(window.innerWidth, window.innerHeight);
 如果你想要canvas在任何浏览器中统一尺寸，你可以使用[`scaleToWindow` 成员函数](https://github.com/kittykatattack/scaleToWindow).
 
 <a id='sprites'></a>
-Pixi 精灵
+Pixi 精灵（sprites）
 ------------
-现在你就有了一个画布，可以开始往上面放图像了。所有你想在画布上显示的东西必须被加进一个被称作 `舞台`的Pixi对象中。你能够像这样使用舞台对象：
+现在你就有了一个画布，可以开始往上面放图像了。所有你想在画布上显示的东西必须被加进一个被称作 `stage` 的 Pixi 对象中。你能够像这样使用 stage 对象：
 ```js
 app.stage
 ```
-这个`舞台`是一个Pixi `容器`对象。你能把它理解成一种将放进去的东西分组并存储的空箱子。 `舞台`对象是在你的场景中所有可见对象的根容器。所有你放进去的东西都会被渲染到canvas中。现在`舞台`是空的，但是很快我们就会放进去一点东西。 (你可以从这了解关于Pixi`容器`对象的更多信息[here](http://pixijs.download/release/docs/PIXI.Container.html)).
+这个 `stage` 是一个Pixi `Container`对象。你能把它理解成一种将放进去的东西分组并存储的空箱子。 `舞台`对象是在你的场景中所有可见对象的根容器。所有你放进去的东西都会被渲染到canvas中。现在`舞台`是空的，但是很快我们就会放进去一点东西。 (你可以从这了解关于Pixi`容器`对象的更多信息[here](http://pixijs.download/release/docs/PIXI.Container.html)).
 
 （重要信息：因为`舞台`是一个Pixi`容器`对象，所以他有很多其他`容器`对象都有的属性和方法。但是，尽管舞台拥有`width` 和 `height`属性， *他们都不能查看画布窗口的大小* 。舞台的`width` 和 `height`属性仅仅告诉了你你放进去的东西占用的大小 - 更多的信息在前面！）
 
